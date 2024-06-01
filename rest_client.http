@@ -1,0 +1,14 @@
+
+### create user
+POST http://localhost:3000/api/users HTTP/1.1
+content-type: application/json
+
+{
+    "first_name": "daniel",
+    "last_name": "wid",
+    "email": "daniel3@gmail.com",
+    "password": "1q@2w3E4R"
+}
+
+### check connection
+GET http://localhost:3000 HTTP/1.1
