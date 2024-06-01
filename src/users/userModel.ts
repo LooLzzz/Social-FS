@@ -16,4 +16,11 @@ export class UserModel {
         const { rows } = await pool.query(user_query, values);
         return rows[0]    
     }
+
+    static async findById(userId: number): Promise<User> {
+        const user_query = 'SELECT * FROM users WHERE id = $1'
+        const values = [userId];
+        const { rows } = await pool.query(user_query, values);
+        return rows[0]    
+    }
 }
