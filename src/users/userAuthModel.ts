@@ -34,4 +34,10 @@ export class UserAuthModel {
         const query = `UPDATE users_auth SET last_login = CURRENT_TIMESTAMP WHERE user_id = $1`
         await pool.query(query, [userId])
     }
+    
+
+    static async deleteAuthUserById(userId: number): Promise<void> {
+        const query = `DELETE FROM users_auth WHERE user_id = $1`
+        await pool.query(query, [userId])
+    }
 }

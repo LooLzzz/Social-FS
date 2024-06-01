@@ -23,4 +23,9 @@ export class UserModel {
         const { rows } = await pool.query(user_query, values);
         return rows[0]    
     }
+
+    static async deleteUserById(userId: number): Promise<void> {
+        const query = `DELETE FROM users WHERE id = $1`
+        await pool.query(query, [userId])
+    }
 }

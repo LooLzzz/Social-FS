@@ -50,4 +50,10 @@ export class UserService {
     static async getUserById(id: number): Promise<User | null> {
         return await UserModel.findById(id);
       }
+
+    static async deleteUserById(id: number): Promise<void> {
+        await UserAuthModel.deleteAuthUserById(id)
+        await UserModel.deleteUserById(id)
+        return
+    }
 }
